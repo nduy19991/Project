@@ -17,9 +17,8 @@ const CardCommon: React.FC<IPropsCardCommon> = (props) => {
 
     return (
         <div className={Styles.product}>
-            <div className={Styles.bg_image}>
-                <div className={Styles.image}
-                    style={{ backgroundImage: `url(${imgUrl})` }}
+            <div className={Styles.image}
+                    style={{ backgroundImage: `url(${imgUrl})`}}
                     onMouseOver={handleMouseOver}
                     onMouseLeave={handleMouseLeave}
                 >
@@ -30,17 +29,16 @@ const CardCommon: React.FC<IPropsCardCommon> = (props) => {
                         {selling ? <div className={Styles.selling}>selling fast</div> : null}
                     </div>
                 </div>
-            </div>
             <div className={Styles.title}>
-            {title ?? <div>{title}</div>}
+                {title ?? <div>{title}</div>}
             </div>
             <span className={Styles.old_price}>
-            {oldPirce ?? <span>{oldPirce}</span>}
+                {oldPirce ?? <span>{oldPirce}</span>}
             </span>
             <span className={Styles.new_price}>
-            {newPrice ?? <span>{newPrice}</span>}
+                {newPrice ?? <span>{newPrice}</span>}
             </span>
-            
+
         </div>
     )
 };

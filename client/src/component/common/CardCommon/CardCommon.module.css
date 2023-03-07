@@ -1,9 +1,9 @@
 .product {
     height: 484px;
     width: 316px;
-    margin: 30px;
+    margin: 15px;
+    margin-top: 30px;
 }
-
 
 .image {
     height: 404px;

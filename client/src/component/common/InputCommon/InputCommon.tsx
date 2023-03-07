@@ -26,20 +26,22 @@ const InputCommon: React.FC<IPropsInputCommon> = (props) => {
     });
   };
   return (
-    <div className="input-group">
-      <span className={Styles.label}>{label ?? <span>{label}</span>}</span>
-      <input
-        type={isInputPassword ? "password" : type}
-        aria-label="First name"
-        className={`form-control ${Styles.input_text}`}
-        style={{
-          color: color,
-        }}
-      />
-      <span onClick={handleShowPassword} style={{ color: colorTextPassword }}>
-        {isShowPassword ? "show" : "hide"}
-      </span>
-    </div>
+    <>
+      <div className={Styles.input_group}>
+        {label ?? <span className="input-group-text">{label}":"</span>}
+        <input
+          type={isInputPassword ? "password" : type}
+          aria-label="First name"
+          className={`form-control ${Styles.input_text}`}
+          style={{
+            color: color,
+          }}
+        />
+        <span onClick={handleShowPassword} style={{ color: colorTextPassword }}>
+          {/* {isShowPassword ? "show" : "hide"} */}
+        </span>
+      </div>
+    </>
   );
 };
 
