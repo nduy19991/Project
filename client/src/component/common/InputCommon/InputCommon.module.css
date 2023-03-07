@@ -1,0 +1,8 @@
+.input_text {
+    font-size: 14px;
+}
+
+.label {
+    width: 70px;
+    display: inline-flex;
+}
