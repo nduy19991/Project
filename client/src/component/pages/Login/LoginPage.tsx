@@ -3,7 +3,6 @@ import InputCommon from "../../common/InputCommon/InputCommon";
 import Styles from "./LoginPage.module.css";
 import logo from "../../../images/logo_asos.png";
 import facebook from "../../../images/facebook.png";
-import google from "../../../images/google.png";
 
 const LoginPage: React.FC = () => {
   return (
@@ -25,8 +24,8 @@ const LoginPage: React.FC = () => {
           {/* INPUT */}
           <div className={Styles.form}>
             <div className={Styles.field}>
-              <InputCommon label="EMAIL ADDRESS" />
-              <InputCommon label="PASSWORD" />
+              <InputCommon label="EMAIL ADDRESS" color="black" isInputPassword={false}/>
+              <InputCommon label="PASSWORD" color="black"/>
             </div>
 
             <div className={Styles.submit}>

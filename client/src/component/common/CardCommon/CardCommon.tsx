@@ -28,7 +28,7 @@ const CardCommon: React.FC<IPropsCardCommon> = (props) => {
                     <div>
                         {selling ? <div className={Styles.selling}>selling fast</div> : null}
                     </div>
-                </div>
+            </div>
             <div className={Styles.title}>
                 {title ?? <div>{title}</div>}
             </div>

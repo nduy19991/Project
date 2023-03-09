@@ -1,0 +1,100 @@
+.top_bar {
+    width: 100%;
+    height: 30px;
+    background-color: #f8f8f8;
+}
+
+.mid_bar {
+    width: 100%;
+    height: 60px;
+    background-color: #2d2d2d;  
+}
+
+.mid_main {
+    width: 1366px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.mid_linklogo {
+    /* margin-left: -20px; */
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.mid_logo {
+    height: 20px;
+}
+
+.mid_btn {
+    display: flex;
+    background-color: #2d2d2d;
+}
+
+.mid_btnwomen {
+    background-color: #2d2d2d;
+    height: 100%;
+    width: 114px;
+    color: #fff;
+    border: none;
+}
+
+.mid_link {
+    text-decoration: none;
+    color: #fff;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+    padding: 0;
+    font-size: .875rem;
+    font-family: futura-pt,sans-serif;
+}
+
+.mid_search {
+    width: 835px;
+    height: 100%;
+    display: flex;
+}
+
+.mid_input {
+    width: 790px;
+    height: 38px;
+    margin: auto;
+    /* display: block; */
+    align-items: center;
+    font-size: 1rem;
+    border: 0;
+    height: 38px;
+    border-radius: 19px/50%;
+    padding-left: 16px;
+    padding-right: 70px;
+    box-sizing: border-box;
+    color: #2d2d2d;
+    background: #fff;
+    letter-spacing: .4px;
+}
+
+.widgets {
+    display: flex;
+}
+
+.btn_widgets {
+    width: 50px;
+    background-color: #2d2d2d;
+    border: none;
+}
+
+.icon_widgets {
+    width: 25px;
+    height: 25px;
+    color: #fff;
+}
+
+.bot_bar {
+    width: 100%;
+    height: 50px;
+    background-color: #525050;
+}

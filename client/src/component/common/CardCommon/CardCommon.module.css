@@ -8,6 +8,7 @@
 .image {
     height: 404px;
     width: 316px;
+    background-size: contain;
 }
 
 .discount {

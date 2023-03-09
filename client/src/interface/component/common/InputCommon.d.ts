@@ -7,5 +7,5 @@ interface IPropsInputCommon {
 
 interface IPropsInputCommon {
     isShowPassword?: boolean,
-    colorTextPassword ?: 'red' | 'blue'
+    colorTextPassword ?: 'black' | 'blue'
 }
