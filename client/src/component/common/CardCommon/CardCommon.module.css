@@ -1,8 +1,8 @@
 .product {
-    height: 484px;
+    height: 470px;
     width: 316px;
     margin: 15px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .image {
@@ -13,7 +13,7 @@
 
 .discount {
     position: absolute;
-    top: 40px;
+    margin-top: 15px;
     background-color: #fefefe;
     color: #d01345;
     font-size: 13px;
@@ -36,6 +36,29 @@
     text-transform: uppercase;
     border-radius: 20px 0 0 20px;
     padding-left: 15px;
+}
+
+.like {
+    width: 100%;
+    height: 30px;
+    padding: 15px;
+}
+
+.btn_like {
+    width: 36px;
+    height: 36px;
+    margin-top: 340px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: none;
+}
+
+.heart {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    color: #d01340;
 }
 
 .title {

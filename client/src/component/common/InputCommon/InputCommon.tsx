@@ -39,7 +39,7 @@ const InputCommon: React.FC<IPropsInputCommon> = (props) => {
           }}
         />
         {isInputPassword && (
-          <span onClick={handleShowPassword} style={{ color: colorTextPassword }}>
+          <span onClick={handleShowPassword} style={{ color: colorTextPassword}}>
           {isShowPassword ? <BiHide/> : <BiShow/>}
         </span>
         )}

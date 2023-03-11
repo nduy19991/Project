@@ -4,7 +4,8 @@ import './App.css';
 // import ProductPage from './component/pages/Product/ProductPage';
 // import InputCommon from './component/common/InputCommon/InputCommon';
 // import RegisterPage from './component/pages/Register/RegisterPage';
-import TaskBar from './component/common/TaskBar/TaskBar';
+// import TaskBar from './component/common/TaskBar/TaskBar';
+import HomePage from './component/pages/Home/HomePage';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <LoginPage/> */}
       {/* <ProductPage/> */}
       {/* <InputCommon/> */}
-      <TaskBar/>
+      {/* <TaskBar/> */}
+      <HomePage/>
     </div>
   );
 }

@@ -1,0 +1,20 @@
+.bot_btn {
+    width: auto;
+    color: white;
+    border: none;
+    padding: 0 10px;
+    letter-spacing: .8px;
+    background-color: #525050;
+    line-height: 50px;
+}
+
+.background {
+    font-size: .875rem;
+    transform: skew(-12deg);
+    background: #d01345;
+}
+
+.bot_textbtn {
+    letter-spacing: .8px;
+    font-size: 13px;
+}
