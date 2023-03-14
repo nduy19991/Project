@@ -1,9 +1,10 @@
 interface IPropsCardCommon {
-    discount?: string;
+    _id: string | number;
+    discount?: number;
+    price?: number;
+    total?: number;
     selling?: boolean;
     imgHover?: string;
     imgLeave?: string;
     title?: string;
-    oldPirce?: string;
-    newPrice?: string;
 }

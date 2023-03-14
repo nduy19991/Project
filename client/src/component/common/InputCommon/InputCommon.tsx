@@ -12,6 +12,8 @@ const InputCommon: React.FC<IPropsInputCommon> = (props) => {
     color,
     isInputPassword = true,
     type = "text",
+    placeholder,
+    className,
   } = props;
   const [state, setState] = useState<IPropsInputCommon>(defaultState);
   const { isShowPassword, colorTextPassword } = state;
@@ -33,10 +35,11 @@ const InputCommon: React.FC<IPropsInputCommon> = (props) => {
         <input
           type={isInputPassword && !isShowPassword ? "password" : type}
           aria-label="First name"
-          className={`form-control ${Styles.input_text}`}
+          className={`form-control ${Styles.input_text}, ${className}`}
           style={{
             color: color,
           }}
+          placeholder={placeholder}
         />
         {isInputPassword && (
           <span onClick={handleShowPassword} style={{ color: colorTextPassword}}>

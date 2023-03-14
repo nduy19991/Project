@@ -1,11 +1,11 @@
 import React from "react";
-import TaskBar from "../../common/TaskBar/TaskBar";
+import NavBarLayout from "../../layout/NavBarLayout/NavBarLayout";
 import ProductPage from "../Product/ProductPage";
 
 const HomePage: React.FC = () => {
     return(
         <div>
-            <TaskBar/>
+            <NavBarLayout/>
             <ProductPage/>
         </div>
     )

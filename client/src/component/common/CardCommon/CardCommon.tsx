@@ -8,7 +8,7 @@ numeral.locale("en-gb");
 
 const CardCommon: React.FC<IPropsCardCommon> = (props) => {
 
-    const { discount, selling, imgHover, imgLeave, title, oldPirce, newPrice } = props
+    const { discount, selling, imgHover, imgLeave, title, price, total } = props
 
     const [imgUrl, setImageUrl] = useState(true);
 
@@ -23,15 +23,15 @@ const CardCommon: React.FC<IPropsCardCommon> = (props) => {
     }
 
     const formattedDiscount = discount
-    ? numeral(parseFloat(discount) / -100).format("0%")
+    ? numeral(- discount / parseFloat("100") ).format("%")
     : null;
 
-    const formattedoldPrice = oldPirce
-    ? numeral(parseFloat(oldPirce)).format("$0,0")
+    const formattedoldPrice = price
+    ? numeral(price).format("$0,0")
     : null;
 
-    const formattednewPrice = newPrice
-    ? numeral(parseFloat(newPrice)).format("$0,0")
+    const formattednewPrice = total
+    ? numeral(total).format("$0,0")
     : null;
 
     return (
@@ -58,7 +58,7 @@ const CardCommon: React.FC<IPropsCardCommon> = (props) => {
                 {title ?? <div>{title}</div>}
             </div>
             <span className={Styles.old_price}>
-                {formattedoldPrice ?? <span>{formattedoldPrice}</span>}
+                {discount ? <span>{formattedoldPrice}</span> : null}
             </span>
             <span className={Styles.new_price}>
                 {formattednewPrice ?? <span>{formattednewPrice}</span>}

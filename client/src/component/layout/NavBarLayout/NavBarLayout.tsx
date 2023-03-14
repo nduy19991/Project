@@ -1,8 +1,11 @@
 import React from "react";
-import Styles from "./TaskBar..module.css";
+import Styles from "./NavBarLayout.module.css";
 import { HiOutlineUser } from "react-icons/hi";
 import { AiOutlineHeart, AiOutlineShopping } from "react-icons/ai";
-import ButtonCommon from "../ButtonCommon/ButtonCommon";
+import ButtonCommon from "../../common/ButtonCommon/ButtonCommon";
+import InputCommon from "../../common/InputCommon/InputCommon";
+import { Col, Row } from "react-bootstrap";
+import buttonItems from "../../../data/buttonItems.json"
 
 const TaskBar: React.FC = () => {
   return (
@@ -45,11 +48,14 @@ const TaskBar: React.FC = () => {
             </button>
           </div>
           <div className={Styles.mid_search}>
-            <input
-              className={Styles.mid_input}
-              type="text"
+            <div className={Styles.mid_bginput}>
+            <InputCommon
+              label=""
+              isInputPassword={false}
               placeholder="Search for itmes and brands"
-            />
+              className={Styles.mid_input}
+              />
+            </div>
           </div>
           <div className={Styles.widgets}>
             <button className={Styles.btn_widgets}>
@@ -66,18 +72,14 @@ const TaskBar: React.FC = () => {
       </div>
       <nav className={Styles.bot_bar}>
         <div className={Styles.bot_nav}>
-          <ButtonCommon title="Sale" background={true} />
-          <ButtonCommon title="New in" background={false} />
-          <ButtonCommon title="Clothing" background={false} />
-          <ButtonCommon title="Shoes" background={false} />
-          <ButtonCommon title="Accessories" background={false} />
-          <ButtonCommon title="Sportswear" background={false} />
-          <ButtonCommon title="Jeans" background={false} />
-          <ButtonCommon title="Brands" background={false} />
-          <ButtonCommon title="Topman" background={false} />
-          <ButtonCommon title="Outlet" background={true} />
-          <ButtonCommon title="Marketpllace" background={false} />
-        </div>
+            {buttonItems.map((item) => (
+            <Row>
+              <Col key={item._id}>
+                <ButtonCommon {...item} />
+              </Col>
+            </Row>
+          ))}
+            </div>
       </nav>
     </div>
   );
