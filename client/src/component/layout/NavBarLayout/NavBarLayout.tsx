@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./NavBarLayout.module.css";
 import { HiOutlineUser } from "react-icons/hi";
 import { AiOutlineHeart, AiOutlineShopping } from "react-icons/ai";
-import ButtonCommon from "../../common/ButtonCommon/ButtonCommon";
+import BarButtonCommon from "../../common/BarButtonCommon/BarButtonCommon";
 import InputCommon from "../../common/InputCommon/InputCommon";
 import { Col, Row } from "react-bootstrap";
 import buttonItems from "../../../data/buttonItems.json"
@@ -75,7 +75,7 @@ const TaskBar: React.FC = () => {
             {buttonItems.map((item) => (
             <Row>
               <Col key={item._id}>
-                <ButtonCommon {...item} />
+                <BarButtonCommon {...item} />
               </Col>
             </Row>
           ))}

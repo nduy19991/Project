@@ -1,0 +1,112 @@
+.main {
+    width: 1257px;
+    margin: auto;
+}
+
+/* .bghero_img {
+
+    
+} */
+.hero_img {
+    margin-top: 25px;
+    width: 100%;
+    height: 600px;
+}
+
+.bghero_holder {
+    width: 410px;
+    margin: auto;
+    padding-top: 360px;
+}
+
+.hero_holder {
+    width: 410px;
+    margin: auto;
+    background: white;
+    border: none;
+    padding: 0;
+}
+
+.hero_title {
+    width: 100%;
+    height: 77px;
+    display: inline;
+    line-height: 83px;
+    font-size: 60px;
+    padding: 6px 16px;
+    color: black;
+}
+
+.bghero_button {
+    width: 184px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.bgfeature {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+}
+
+.moment {
+    width: 1120px;
+    margin: auto;
+    height: 800px;
+    margin-top: 60px;
+    display: flex;
+}
+
+.bgmoment {
+    width: 500px;
+    margin: 30px;
+}
+
+.moment_img {
+    width: 500px;
+    height: 638px;
+}
+
+.moment_title1 {
+    padding-top: 10px;
+    margin: auto;
+    width: 247px;
+    letter-spacing: 2px;
+}
+
+.moment_paragraph1 {
+    margin: auto;
+    width: 87px;
+    padding-top: 10px;
+}
+
+.moment_title2 {
+    padding-top: 10px;
+    margin: auto;
+    width: 276px;
+    letter-spacing: 2px;
+}
+
+.moment_paragraph2 {
+    margin: auto;
+    width: 183px;
+    padding-top: 10px;
+}
+
+.moment_btn {
+    margin: auto;
+    width: 174px;
+    padding-top: 25px;
+}
+
+.logo_title {
+    padding-top: 60px;
+    margin: auto;
+    width: 275px;
+    letter-spacing: 2px;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+}

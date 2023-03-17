@@ -1,8 +1,8 @@
 import React from "react";
-import Styles from "./ButtonCommon.module.css";
+import Styles from "./BarButtonCommon.module.css";
 import clsx from "clsx";
 
-const ButtonCommon: React.FC<ButtonCommon> = (props) => {
+const BarButtonCommon: React.FC<BarButtonCommon> = (props) => {
   const { title, background } = props;
 
   return (
@@ -16,4 +16,4 @@ const ButtonCommon: React.FC<ButtonCommon> = (props) => {
   );
 };
 
-export default ButtonCommon;
+export default BarButtonCommon;
