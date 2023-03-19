@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./FeatureCommon.module.css"
 
-const FeatureCommon: React.FC<FeatureCommon> = (props) => {
+const FeatureCommon: React.FC<IFeatureCommon> = (props) => {
 
     const { link, img, title, paragraph } = props
 

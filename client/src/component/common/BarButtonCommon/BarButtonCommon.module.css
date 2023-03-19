@@ -1,4 +1,5 @@
 .bot_btn {
+    margin: 0px 3px;
     width: auto;
     color: white;
     border: none;
@@ -6,6 +7,11 @@
     letter-spacing: .8px;
     background-color: #525050;
     line-height: 50px;
+}
+
+.bot_btn:hover {
+    background-color: aliceblue;
+    color: black;
 }
 
 .background {

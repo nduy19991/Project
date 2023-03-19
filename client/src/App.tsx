@@ -1,14 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
-import HomePage from './component/pages/Home/HomePage';
+import AuthBaseLayout from './component/layout/AuthBaseLayout/AuthBaseLayout';
+import PrivateRouter from './component/layout/PrivateRouter';
 import { store } from './redux/Store';
 
 function App() {
   return (
     <div>
       <Provider store={store}>
-        <HomePage />
+        <AuthBaseLayout/>
+        <PrivateRouter/>
       </Provider>
     </div>
   );

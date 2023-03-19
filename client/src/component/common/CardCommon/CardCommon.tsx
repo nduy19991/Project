@@ -6,7 +6,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 numeral.locale("en-gb");
 
-const CardCommon: React.FC<IPropsCardCommon> = (props) => {
+const CardCommon: React.FC<ICardCommon> = (props) => {
 
     const { discount, selling, imgHover, imgLeave, title, price, total } = props
 

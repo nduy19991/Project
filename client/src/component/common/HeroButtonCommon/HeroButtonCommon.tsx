@@ -2,8 +2,8 @@ import React from "react";
 import Styles from "./HeroButtonCommon.module.css";
 import clsx from "clsx";
 
-const HeroButtonCommon: React.FC<HeroButtonCommon> = (props) => {
-  const { title, hideboder, height } = props;
+const HeroButtonCommon: React.FC<IHeroButtonCommon> = (props) => {
+  const { title, hideboder, height, background } = props;
 
   return (
     <div>
@@ -11,7 +11,7 @@ const HeroButtonCommon: React.FC<HeroButtonCommon> = (props) => {
       className={clsx(Styles.hero_button, {
         [Styles.hideboder] : hideboder
       })}
-      style={{height: height}}
+      style={{height: height, backgroundColor: background}}
       >
         {title ?? <span className={Styles.bot_textbtn}>{title}</span>}
       </button>

@@ -24,12 +24,6 @@
     },
 
     {
-        "_id": 5,
-        "title": "Sale",
-        "background": false
-    },
-
-    {
         "_id": 6,
         "title": "Accessories",
         "background": false

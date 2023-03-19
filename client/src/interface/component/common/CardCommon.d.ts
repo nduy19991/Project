@@ -1,4 +1,4 @@
-interface IPropsCardCommon {
+interface ICardCommon {
     _id: string | number;
     discount?: number;
     price?: number;

@@ -1,13 +1,13 @@
 interface IPropsInputCommon {
   label?: string;
   color?: string;
-  isInputPassword ?: boolean;
-  type?: 'text' | 'password' | 'date' | 'color';
-  placeholder?: string;
+  isInputPassword?: boolean;
+  type?: "text" | "password" | "date" | "color" | string;
   className?: string;
+  placeholder?: string;
 }
 
 interface IPropsInputCommon {
-    isShowPassword?: boolean;
-    colorTextPassword ?: 'black' | 'blue';
+  isShowPassword?: boolean;
+  colorTextPassword?: "red" | "blue";
 }

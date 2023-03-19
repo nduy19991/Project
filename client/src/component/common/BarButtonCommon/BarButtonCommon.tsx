@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./BarButtonCommon.module.css";
 import clsx from "clsx";
 
-const BarButtonCommon: React.FC<BarButtonCommon> = (props) => {
+const BarButtonCommon: React.FC<IBarButtonCommon> = (props) => {
   const { title, background } = props;
 
   return (

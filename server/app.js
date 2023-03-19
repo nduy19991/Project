@@ -8,6 +8,13 @@ const cors = require('cors')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
+var barButtonsRouter = require('./routes/barButtons');
+var logoCommonsRouter = require('./routes/logoCommons');
+var logoWCommonsRouter = require('./routes/logoWCommons');
+var featureCommonsRouter = require('./routes/featureCommons');
+var featureWCommonsRouter = require('./routes/featureWCommons');
+var infoFootersRouter = require('./routes/infoFooters');
+var logoFooterCommonsRouter = require('./routes/logoFooterCommons');
 
 var app = express();
 
@@ -31,6 +38,13 @@ app.use(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+app.use('/barbuttons', barButtonsRouter);
+app.use('/logocommons', logoCommonsRouter);
+app.use('/logowcommons', logoWCommonsRouter);
+app.use('/featurecommons', featureCommonsRouter);
+app.use('/featureWcommons', featureWCommonsRouter);
+app.use('/infofooters', infoFootersRouter);
+app.use('/logofootercommons', logoFooterCommonsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

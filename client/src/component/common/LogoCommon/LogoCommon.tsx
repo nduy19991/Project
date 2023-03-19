@@ -1,7 +1,7 @@
 import React from "react"
 import Styles from "./LogoCommon.module.css";
 
-const LogoCommon: React.FC<LogoCommon> = (props) => {
+const LogoCommon: React.FC<ILogoCommon> = (props) => {
 
     const { link, img } = props;
 

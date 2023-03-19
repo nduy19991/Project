@@ -1,51 +1,65 @@
 import React, { useState } from "react";
 import Styles from "./InputCommon.module.css";
-import { BiHide, BiShow } from 'react-icons/bi';
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
-const defaultState: IPropsInputCommon = {
+interface IStateInputCommon {
+  isShowPassword: boolean;
+  isForcus: boolean;
+}
+
+const defaultValueState: IStateInputCommon = {
+  isForcus: false,
   isShowPassword: false,
 };
 
 const InputCommon: React.FC<IPropsInputCommon> = (props) => {
   const {
     label,
-    color,
+    color = "gray",
     isInputPassword = true,
     type = "text",
-    placeholder,
     className,
+    placeholder,
   } = props;
-  const [state, setState] = useState<IPropsInputCommon>(defaultState);
-  const { isShowPassword, colorTextPassword } = state;
+  const [state, setState] = useState<IStateInputCommon>(defaultValueState);
+  const { isShowPassword, isForcus } = state;
 
   const handleShowPassword = () => {
     setState((prev) => {
-      console.log(prev);
       return {
         ...prev,
-        isShowPassword: !isShowPassword,
-        colorTextPassword: prev.isShowPassword ? "black" : "blue",
+        isShowPassword: !prev.isShowPassword,
       };
     });
   };
+
   return (
     <>
       <div className={Styles.input_group}>
-        {label ?? <span className="input-group-text">{label}":"</span>}
-        <input
-          type={isInputPassword && !isShowPassword ? "password" : type}
-          aria-label="First name"
-          className={`form-control ${Styles.input_text}, ${className}`}
-          style={{
-            color: color,
-          }}
-          placeholder={placeholder}
-        />
-        {isInputPassword && (
-          <span onClick={handleShowPassword} style={{ color: colorTextPassword}}>
-          {isShowPassword ? <BiHide/> : <BiShow/>}
-        </span>
-        )}
+        {label && <span className="input-group-text">{label}:</span>}
+        <div className={Styles.input}>
+          <input
+            type={isInputPassword && !isShowPassword ? "password" : type}
+            aria-label="Input field"
+            className={`form-control ${Styles.input_text} ${className ?? ""}`}
+            style={{
+              color: color,
+            }}
+            placeholder={placeholder ?? ""}
+          />
+          {isInputPassword && (
+            <span
+              onClick={handleShowPassword}
+              style={{
+                // color: isShowPassword ? "red" : "blue",
+                fontSize: "19px",
+                marginLeft: "3px",
+              }}
+            >
+              {isShowPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </span>
+          )}
+        </div>
       </div>
     </>
   );
