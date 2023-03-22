@@ -75,6 +75,12 @@
   width: 114px;
   color: #fff;
   border: none;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding: 0;
+  font-size: 0.875rem;
 }
 
 .mid_btnwomen:hover {
@@ -83,17 +89,6 @@
 
 .mid_btnwomen_active {
   background-color: #525050;
-}
-
-.mid_link {
-  text-decoration: none;
-  color: #fff;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 2px;
-  font-weight: 700;
-  padding: 0;
-  font-size: 0.875rem;
 }
 
 .mid_search {

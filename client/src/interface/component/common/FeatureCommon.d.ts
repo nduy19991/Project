@@ -4,4 +4,5 @@ interface IFeatureCommon {
   img?: string;
   title?: string;
   paragraph?: string;
+  type?: "men" | "women" | undefined
 }

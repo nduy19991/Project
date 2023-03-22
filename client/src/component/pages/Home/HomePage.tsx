@@ -25,8 +25,6 @@ const HomePage: React.FC<IHomePage> = (props) => {
 
   const [logo, setLogo] = React.useState<Array<ILogoCommon>>([]);
 
-  const [logow, setLogow] = React.useState<Array<ILogoCommon>>([]);
-
   React.useEffect(() => {
     axios.get("http://localhost:9000/featurecommons").then((response) => {
       setFeature(response.data);
@@ -44,13 +42,6 @@ const HomePage: React.FC<IHomePage> = (props) => {
   React.useEffect(() => {
     axios.get("http://localhost:9000/logocommons").then((response) => {
       setLogo(response.data);
-      // console.log(response.data);
-    });
-  }, []);
-
-  React.useEffect(() => {
-    axios.get("http://localhost:9000/logowcommons").then((response) => {
-      setLogow(response.data);
       // console.log(response.data);
     });
   }, []);
@@ -109,7 +100,7 @@ const HomePage: React.FC<IHomePage> = (props) => {
         </div>
         {type === "men" ? (
           <div className={Styles.bgfeature}>
-            {feature.map((item) => (
+            {feature.filter(logo => logo.type === "men").map((item) => (
               <Row>
                 <Col key={item._id}>
                   <FeatureCommon {...item} />
@@ -119,7 +110,7 @@ const HomePage: React.FC<IHomePage> = (props) => {
           </div>
         ) : (
           <div className={Styles.bgfeature}>
-            {featurew.map((item) => (
+            {feature.filter(logo => logo.type === "women").map((item) => (
               <Row>
                 <Col key={item._id}>
                   <FeatureCommon {...item} />
@@ -141,9 +132,19 @@ const HomePage: React.FC<IHomePage> = (props) => {
           />
         </div>
         <h2 className={Styles.logo_title}>TRENDINGS BRANDS</h2>
-        {type === "men" ? (
+        {type === "men" ? 
           <div className={Styles.logo}>
-            {logo.map((item) => (
+          {logo.filter(logo => logo.type === "men").map((item) => (
+            <Row>
+              <Col key={item._id}>
+                <LogoCommon {...item} />
+              </Col>
+            </Row>
+          ))}
+        </div>
+         : 
+          <div className={Styles.logo}>
+            {logo.filter(logo => logo.type === "women").map((item) => (
               <Row>
                 <Col key={item._id}>
                   <LogoCommon {...item} />
@@ -151,17 +152,7 @@ const HomePage: React.FC<IHomePage> = (props) => {
               </Row>
             ))}
           </div>
-        ) : (
-          <div className={Styles.logo}>
-            {logow.map((item) => (
-              <Row>
-                <Col key={item._id}>
-                  <LogoCommon {...item} />
-                </Col>
-              </Row>
-            ))}
-          </div>
-        )}
+        }
       </div>
       <FooterLayout />
     </div>

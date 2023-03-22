@@ -8,12 +8,13 @@ var router = express.Router();
 mongoose.set("strictQuery", false);
 mongoose.connect(CONNECTION_STRING);
 
-const { LogoWCommon } = require("../models");
+const { Branch } = require("../models");
+// const products = require("../data/products.json")
 
 /* GET ALL */
 router.get("/", function (req, res, next) {
   try {
-    LogoWCommon.find()
+    Branch.find()
       .then((result) => {
         res.send(result);
       })
