@@ -9,7 +9,7 @@ const productSchema = new Schema({
     selling: { type: Boolean, required: true },
     imgLeave: { type: String, required: true },
     imgHover: { type: String, required: true },
-    branchId: { type: Schema.Types.ObjectId, ref: 'Branch', required: false },
+    size: { type: String, required: true },
 },
 {
   versionKey: false,

@@ -5,6 +5,7 @@ interface IPropsInputCommon {
   type?: "text" | "password" | "date" | "color" | string;
   className?: string;
   placeholder?: string;
+  value?: any,
 }
 
 interface IPropsInputCommon {

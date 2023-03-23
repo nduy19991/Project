@@ -92,7 +92,7 @@ const TaskBar: React.FC = () => {
           </div>
           <div className={Styles.mid_right_group}>
             <div className={Styles.widgets_wrapper}>
-              <button
+              <a
                 className={Styles.widgets}
                 onMouseEnter={handleHover}
                 onMouseLeave={handleCloseTable}
@@ -100,7 +100,7 @@ const TaskBar: React.FC = () => {
                 // onClick={handleIconClick}
               >
                 <BsPerson className={Styles.widgets_icon} />
-              </button>
+              </a>
               {showTable && (
                 <div
                   className={`animate__animated animate__fadeIn ${Styles.account_table}`}
@@ -168,12 +168,12 @@ const TaskBar: React.FC = () => {
                 </div>
               )}
             </div>
-            <button className={Styles.widgets}>
+            <a className={Styles.widgets}>
               <AiOutlineHeart className={Styles.widgets_icon} />
-            </button>
-            <button className={Styles.widgets}>
+            </a>
+            <a className={Styles.widgets}  href="http://localhost:3000/bag">
               <RiShoppingBagLine className={Styles.widgets_icon} />
-            </button>
+            </a>
           </div>
         </div>
       </div>

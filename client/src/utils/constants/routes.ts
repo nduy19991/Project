@@ -1,15 +1,17 @@
 // export routes on application
 
 const MENU_PARRENT = {
+  //HOMEPAGE
   ADMIN: "/",
 };
 
 export const ROUTES = {
+  //HOMEPAGE
   ADMIN_MEN: MENU_PARRENT.ADMIN  + "/men",
   ADMIN_WOMEN: MENU_PARRENT.ADMIN  + "/women",
+  //ABOUTPAGE
   ADMIN_ABOUT: MENU_PARRENT.ADMIN + "/about",
-  ADMIN_USERS: MENU_PARRENT.ADMIN + "/users",
-  ADMIN_USER: MENU_PARRENT.ADMIN + "/users/:id",
+  //PRODUTSPAGE
   ADMIN_PRODUCT: MENU_PARRENT.ADMIN + "/products",
   ADMIN_PRODUCT_SALE: MENU_PARRENT.ADMIN + "/products/sale",
   ADMIN_PRODUCT_NEWIN: MENU_PARRENT.ADMIN + "/products/newin",
@@ -22,6 +24,12 @@ export const ROUTES = {
   ADMIN_PRODUCT_TOPMAN: MENU_PARRENT.ADMIN + "/products/topman",
   ADMIN_PRODUCT_OUTLET: MENU_PARRENT.ADMIN + "/products/outlet",
   ADMIN_PRODUCT_MARKETPLACE: MENU_PARRENT.ADMIN + "/products/marketplace",
+  //LOGIN
   LOGIN: "/login",
+  //REGISTER
   REGISTER: "/register",
+  ADMIN_BAG: MENU_PARRENT.ADMIN + "/bag",
+  //USERS
+  ADMIN_USERS: MENU_PARRENT.ADMIN + "/users",
+  ADMIN_USER: MENU_PARRENT.ADMIN + "/users/:id",
 };

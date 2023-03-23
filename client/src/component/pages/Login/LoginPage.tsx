@@ -3,29 +3,54 @@ import InputCommon from "../../common/InputCommon/InputCommon";
 import Styles from "./LoginPage.module.css";
 import logo from "../../../images/logo_asos.png";
 import facebook from "../../../images/facebook.png";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../../utils/constants/routes";
+import { useLocation } from "react-router-dom";
 
-const LoginPage: React.FC = () => {
+const SignIn: React.FC = () => {
+  const location = useLocation();
+  const isSignUpPage = location.pathname === "/register";
+  const isSigninPage = location.pathname === "/login";
+
   return (
     <div className={Styles.surrounding}>
       <div className={Styles.container}>
         {/* HEADER */}
         <div className={Styles.logo}>
-          <img src={logo} alt="logo asos" />
+          <Link to={"/"}>
+            <img src={logo} alt="logo asos" />
+          </Link>
         </div>
 
         {/* MAIN FORM */}
         {/* HEADER FORM */}
         <div className={Styles.main}>
           <div className={Styles.option}>
-            <div className={Styles.titleJ}>Join</div>
-            <div className={Styles.titleS}>Sign in</div>
+            <Link to={ROUTES.REGISTER}>
+              <div
+                className={`${Styles.titleJ} ${
+                  isSignUpPage ? Styles.active : ""
+                }`}
+              >
+                Join
+              </div>
+            </Link>
+            <Link to={ROUTES.LOGIN}>
+              <div
+                className={`${Styles.titleS} ${
+                  isSigninPage ? Styles.active : ""
+                }`}
+              >
+                Sign in
+              </div>
+            </Link>
           </div>
 
           {/* INPUT */}
           <div className={Styles.form}>
             <div className={Styles.field}>
-              <InputCommon label="EMAIL ADDRESS" color="black" isInputPassword={false}/>
-              <InputCommon label="PASSWORD" color="black"/>
+              <InputCommon label="EMAIL ADDRESS" isInputPassword={false} />
+              <InputCommon label="PASSWORD" />
             </div>
 
             <div className={Styles.submit}>
@@ -96,4 +121,4 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
+export default SignIn;
