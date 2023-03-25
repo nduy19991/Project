@@ -168,7 +168,7 @@ const TaskBar: React.FC = () => {
                 </div>
               )}
             </div>
-            <a className={Styles.widgets}>
+            <a className={Styles.widgets} href="http://localhost:3000/saved">
               <AiOutlineHeart className={Styles.widgets_icon} />
             </a>
             <a className={Styles.widgets}  href="http://localhost:3000/bag">

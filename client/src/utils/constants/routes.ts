@@ -30,7 +30,10 @@ export const ROUTES = {
   LOGIN: "/login",
   //REGISTER
   REGISTER: "/register",
+  //BAG
   ADMIN_BAG: MENU_PARRENT.ADMIN + "/bag",
+  //SAVED
+  ADMIN_SAVED: MENU_PARRENT.ADMIN + "/saved",
   //USERS
   ADMIN_USERS: MENU_PARRENT.ADMIN + "/users",
   ADMIN_USER: MENU_PARRENT.ADMIN + "/users/:id",

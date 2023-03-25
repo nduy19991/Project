@@ -145,6 +145,11 @@ const PrivateRouter: React.FC = () => {
       path: ROUTES.ADMIN_BAG,
       element: lazy(() => import("../pages/Bag/Bag")),
     },
+    //SAVED
+    {
+      path: ROUTES.ADMIN_SAVED,
+      element: lazy(() => import("../pages/Saved/Saved")),
+    },
   ];
   return (
     <BrowserRouter>
