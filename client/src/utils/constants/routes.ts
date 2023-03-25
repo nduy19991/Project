@@ -25,12 +25,15 @@ export const ROUTES = {
   ADMIN_PRODUCT_OUTLET: MENU_PARRENT.ADMIN + "/products/outlet",
   ADMIN_PRODUCT_MARKETPLACE: MENU_PARRENT.ADMIN + "/products/marketplace",
   //DETAILPRODUCT
-  ADMIN_DETAILPRODUCT: MENU_PARRENT.ADMIN + "products/detailproduct",
+  ADMIN_DETAILPRODUCT: MENU_PARRENT.ADMIN + "products/:productId",
   //LOGIN
   LOGIN: "/login",
   //REGISTER
   REGISTER: "/register",
+  //BAG
   ADMIN_BAG: MENU_PARRENT.ADMIN + "/bag",
+  //SAVED
+  ADMIN_SAVED: MENU_PARRENT.ADMIN + "/saved",
   //USERS
   ADMIN_USERS: MENU_PARRENT.ADMIN + "/users",
   ADMIN_USER: MENU_PARRENT.ADMIN + "/users/:id",

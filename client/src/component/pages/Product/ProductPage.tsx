@@ -6,16 +6,16 @@ import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import NavBarLayout from "../../layout/NavBarLayout/NavBarLayout";
 import FooterLayout from "../../layout/FooterLayout/FooterLayout";
+import { Link } from "react-router-dom";
 
 const ProductPage: React.FC<IProduct> = (props) => {
   const { type } = props;
 
-  const [products, setProducts] = React.useState<Array<IProduct>>([]);
+  const [products, setProducts] = React.useState<Array<ICardCommon>>([]);
 
   React.useEffect(() => {
     axios.get("http://localhost:9000/products").then((response) => {
       setProducts(response.data);
-      // console.log(response.data);
     });
   }, []);
   return (
@@ -36,7 +36,9 @@ const ProductPage: React.FC<IProduct> = (props) => {
         {products.filter(branch => branch.branchId === "6419c30b113cbd4d744ff135").map((item) => (
           <Row>
             <Col key={item._id}>
+            <Link className={Styles.link} to={`/products/${item._id}`}>
               <CardCommon {...item} />
+              </Link>
             </Col>
           </Row>
         ))}
