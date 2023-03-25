@@ -5,6 +5,10 @@
     margin-top: 50px;
 }
 
+.link {
+    text-decoration: none;
+}
+
 .image {
     height: 404px;
     width: 316px;
@@ -77,6 +81,7 @@
     font-weight: 700;
     letter-spacing: 0.8px;
     margin-right: 5px;
+    color: black;
 }
 
 .new_price {

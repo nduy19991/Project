@@ -123,6 +123,12 @@ const PrivateRouter: React.FC = () => {
       } as IProduct,
     },
 
+    //DETAILPRODUCT
+    {
+      path: ROUTES.ADMIN_DETAILPRODUCT,
+      element: lazy(() => import("../pages/DetailProduct/DetailPage")),
+    },
+
     //ABOUTPAGE
     {
       path: ROUTES.ADMIN_ABOUT,

@@ -3,6 +3,8 @@ import "numeral/locales/en-gb";
 import React, { useState } from "react";
 import Styles from "./CardCommon.module.css"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../../utils/constants/routes";
 
 numeral.locale("en-gb");
 
@@ -36,6 +38,7 @@ const CardCommon: React.FC<ICardCommon> = (props) => {
 
     return (
         <div className={Styles.product}>
+            <Link className={Styles.link} to={ROUTES.ADMIN_DETAILPRODUCT}>
             <div className={Styles.image}
                     style={{ backgroundImage: `url(${imgUrl ? imgLeave : imgHover})`}}
                     onMouseOver={tradeImgUrl}
@@ -64,6 +67,7 @@ const CardCommon: React.FC<ICardCommon> = (props) => {
                 {formattednewPrice ?? <span>{formattednewPrice}</span>}
             </span>
 
+            </Link>
         </div>
     )
 };

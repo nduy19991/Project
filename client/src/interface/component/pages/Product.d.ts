@@ -7,6 +7,7 @@ interface IProduct {
   imgLeave?: string;
   title?: string;
   branchId?: string | undefined;
+  
   type: "sale" | "new in" | "clothing" | "shoes" | "accessories" | "sportswear" | "jeans" | "brands" | "topman" | "outlet" | "marketplace" | undefined
 }
 

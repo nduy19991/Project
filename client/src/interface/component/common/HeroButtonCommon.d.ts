@@ -3,4 +3,6 @@ interface IHeroButtonCommon {
     hideboder?: boolean;
     height?: string;
     background?: string;
+    color?: string;
+    width?: string;
 }

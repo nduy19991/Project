@@ -132,7 +132,7 @@ const HomePage: React.FC<IHomePage> = (props) => {
           />
         </div>
         <h2 className={Styles.logo_title}>TRENDINGS BRANDS</h2>
-        {type === "men" ? 
+        {type === "men" ?
           <div className={Styles.logo}>
           {logo.filter(logo => logo.type === "men").map((item) => (
             <Row>
