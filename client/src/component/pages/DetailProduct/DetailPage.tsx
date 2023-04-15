@@ -151,11 +151,11 @@ const ProductDetail: React.FC = () => {
               }}
             >
               <option>Please Select</option>
-              {/* {product.sizes.map((size, index) => (
-                <option key={index} value={size}>
-                  {size}
+              {product.sizes.map((sizes: any, index: any) => (
+                <option key={index} value={sizes}>
+                  {sizes}
                 </option>
-              ))} */}
+              ))}
             </Form.Select>
 
             <div className={Style.tym}>
