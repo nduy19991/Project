@@ -7,16 +7,21 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import NavBarLayout from "../../layout/NavBarLayout/NavBarLayout";
 import FooterLayout from "../../layout/FooterLayout/FooterLayout";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/Store";
 
 const Bag: React.FC = () => {
-  const [products, setProducts] = React.useState<Array<IProduct>>([]);
+  // const [products, setProducts] = React.useState<Array<IProduct>>([]);
+  const { products } = useSelector(
+    (state: RootState) => state.cart
+  );
 
-  React.useEffect(() => {
-    axios.get("http://localhost:9000/products").then((response) => {
-      setProducts(response.data);
-      // console.log(response.data);
-    });
-  }, []);
+  // React.useEffect(() => {
+  //   axios.get("http://localhost:9000/products").then((response) => {
+  //     setProducts(response.data);
+  //     // console.log(response.data);
+  //   });
+  // }, []);
   return (
     <>
       <NavBarLayout />
@@ -34,7 +39,7 @@ const Bag: React.FC = () => {
               </div>
               {/* PRODUCT LIST */}
               <div className={Styles.productList}>
-                {products.map((item) => (
+                {products?.map((item) => (
                   <Row key={item._id}>
                     <Col key={item._id}>
                       <ItemBagCommon {...item} />

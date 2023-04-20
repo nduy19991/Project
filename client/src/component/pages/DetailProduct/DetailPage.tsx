@@ -11,10 +11,12 @@ import axios from "axios";
 import numeral from "numeral";
 import "numeral/locales/en-gb";
 import { useParams } from "react-router-dom";
+import { useAppDispatch } from "../../../redux/Store";
+import { addToCart } from "../../../redux/cart/Cart.service";
 numeral.locale("en-gb");
 
 const ProductDetail: React.FC = () => {
-
+  const dispatch = useAppDispatch();
   const {productId} = useParams()
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isShowLike, setIsShowLike] = useState(true);
@@ -69,6 +71,10 @@ const ProductDetail: React.FC = () => {
   const handleSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedSize(event.target.value);
   };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  }
 
   //FORMAT PRICE
   
@@ -159,7 +165,7 @@ const ProductDetail: React.FC = () => {
             </Form.Select>
 
             <div className={Style.tym}>
-              <button className={Style.btn_add}>ADD TO BAG</button>
+              <button className={Style.btn_add} onClick={handleAddToCart}>ADD TO BAG</button>
               <button className={Style.btn_like} onClick={handleClick}>
                 {isShowLike ? (
                   <AiOutlineHeart className={Style.heart} />

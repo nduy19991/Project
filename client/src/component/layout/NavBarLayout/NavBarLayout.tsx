@@ -10,12 +10,17 @@ import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { ROUTES } from "../../../utils/constants/routes";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/Store";
 
 const TaskBar: React.FC = () => {
   const location = useLocation();
   const isWomenPage = location.pathname === "/women";
   const isMenPage = location.pathname === "/men";
   const [showTable, setShowTable] = useState(false);
+  const { products } = useSelector(
+    (state: RootState) => state.cart
+  );
 
   const handleHover = () => {
     setShowTable(true);
@@ -63,18 +68,16 @@ const TaskBar: React.FC = () => {
           <div className={Styles.mid_btn}>
             <a href="http://localhost:3000/women">
               <button
-                className={`${Styles.mid_btnwomen} ${
-                  isWomenPage ? Styles.mid_btnwomen_active : ""
-                }`}
+                className={`${Styles.mid_btnwomen} ${isWomenPage ? Styles.mid_btnwomen_active : ""
+                  }`}
               >
                 WOMEN
               </button>
             </a>
             <a href="http://localhost:3000/men">
               <button
-                className={`${Styles.mid_btnwomen} ${
-                  isMenPage ? Styles.mid_btnwomen_active : ""
-                }`}
+                className={`${Styles.mid_btnwomen} ${isMenPage ? Styles.mid_btnwomen_active : ""
+                  }`}
               >
                 MEN
               </button>
@@ -96,8 +99,8 @@ const TaskBar: React.FC = () => {
                 className={Styles.widgets}
                 onMouseEnter={handleHover}
                 onMouseLeave={handleCloseTable}
-                // onMouseDownCapture={handleLeave}
-                // onClick={handleIconClick}
+              // onMouseDownCapture={handleLeave}
+              // onClick={handleIconClick}
               >
                 <BsPerson className={Styles.widgets_icon} />
               </a>
@@ -171,8 +174,11 @@ const TaskBar: React.FC = () => {
             <a className={Styles.widgets} href="http://localhost:3000/saved">
               <AiOutlineHeart className={Styles.widgets_icon} />
             </a>
-            <a className={Styles.widgets}  href="http://localhost:3000/bag">
+            <a className={Styles.widgets} href="http://localhost:3000/bag">
               <RiShoppingBagLine className={Styles.widgets_icon} />
+              <div className={Styles.widgets_number}>
+                {products?.length}
+              </div>
             </a>
           </div>
         </div>

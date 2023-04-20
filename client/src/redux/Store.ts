@@ -5,19 +5,21 @@ import { Action } from "redux";
 import UserReducer from "./user/User.reducer";
 import ProductReducer from "./product/Product.reducer";
 import CommonReducer from "./common/Common.reducer";
-// import { createLogger } from "redux-logger";
+import { createLogger } from "redux-logger";
+import CartReducer from "./cart/Cart.reducer";
 
-// const loggerMiddleware = createLogger();
+const loggerMiddleware = createLogger();
 
 export const store = configureStore({
   reducer: {
     common: CommonReducer,
     user: UserReducer,
     product: ProductReducer,
+    cart : CartReducer
   },
-  // middleware: (getDefaultMiddleware) => {
-  //   return getDefaultMiddleware().concat(loggerMiddleware);
-  // },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(loggerMiddleware);
+  },
   devTools: process.env.NODE_ENV !== "production",
 });
 
