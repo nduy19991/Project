@@ -134,6 +134,7 @@
   border: none;
   display: flex;
   position: relative;
+  text-decoration: none;
 }
 .widgets_icon {
   list-style: none;
@@ -227,12 +228,21 @@
   height: 40px;
   display: inline-block;
 }
-.widgets_number {
+.bg_widgets_number {
   color: white;
   border-radius: 50%;
   background-color: red;
   height: 20px;
   width: 20px;
+  margin-top: 5px
+}
+.widgets_number{
+  margin-top: -1px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 700;
 }
 .wrap_text {
   width: 100%;

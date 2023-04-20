@@ -176,8 +176,10 @@ const TaskBar: React.FC = () => {
             </a>
             <a className={Styles.widgets} href="http://localhost:3000/bag">
               <RiShoppingBagLine className={Styles.widgets_icon} />
-              <div className={Styles.widgets_number}>
+              <div className={Styles.bg_widgets_number}>
+                <div className={Styles.widgets_number}>
                 {products?.length}
+                </div>
               </div>
             </a>
           </div>
