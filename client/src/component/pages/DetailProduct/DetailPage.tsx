@@ -13,52 +13,44 @@ import "numeral/locales/en-gb";
 import { useParams } from "react-router-dom";
 import { useAppDispatch } from "../../../redux/Store";
 import { addToCart } from "../../../redux/cart/Cart.service";
+import { addToSave, deleteToSave } from "../../../redux/save/Save.service";
 numeral.locale("en-gb");
+
 
 const ProductDetail: React.FC = () => {
   const dispatch = useAppDispatch();
-  const {productId} = useParams()
+  const { productId } = useParams()
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isShowLike, setIsShowLike] = useState(true);
   const [selectedSize, setSelectedSize] = useState("");
-  const [product, setProduct] = React.useState<ICardCommon>({
-    _id: "",
-    discount: 0,
-    price: 0,
-    total: 0,
-    selling: false,
-    imgHover: "",
-    imgLeave: "",
-    branchId: undefined,
-    title: "",
-    carousels: [],
-    thumbnails: [],
-    sizes: [],
-  });
-  
+  const [product, setProduct] = React.useState<IProduct>();
+
   React.useEffect(() => {
     axios.get("http://localhost:9000/products/" + productId).then((response) => {
       setProduct(response.data);
       // console.log(response.data.title);
     });
   }, [productId]);
-  
+
 
   const handleThumbnailClick = (index: number) => {
     setCurrentIndex(index);
   };
 
   const handleNextClick = () => {
-    if (currentIndex === product.thumbnails.length - 1) {
-      setCurrentIndex(0);
-    } else {
-      setCurrentIndex(currentIndex + 1);
+    if (product) {
+      if (currentIndex === product?.thumbnails?.length - 1) {
+        setCurrentIndex(0);
+      } else {
+        setCurrentIndex(currentIndex + 1);
+      }
     }
+
   };
 
   const handlePrevClick = () => {
     if (currentIndex === 0) {
-      setCurrentIndex(product.carousels.length - 1);
+      setCurrentIndex(product?.carousels.length - 1);
     } else {
       setCurrentIndex(currentIndex - 1);
     }
@@ -66,6 +58,7 @@ const ProductDetail: React.FC = () => {
 
   const handleClick = () => {
     setIsShowLike(!isShowLike);
+    isShowLike ? product && dispatch(addToSave(product)) : product && dispatch(deleteToSave(product));
   };
 
   const handleSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -73,21 +66,21 @@ const ProductDetail: React.FC = () => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
+    product && dispatch(addToCart(product));
   }
 
   //FORMAT PRICE
-  
-  const formattedDiscount = product.discount
-    ? numeral(- product.discount / parseFloat("100") ).format("%")
+
+  const formattedDiscount = product?.discount
+    ? numeral(- product?.discount / parseFloat("100")).format("%")
     : null;
 
-    const formattedoldPrice = product.price
-    ? numeral(product.price).format("$0,0")
+  const formattedoldPrice = product?.price
+    ? numeral(product?.price).format("$0,0")
     : null;
 
-    const formattednewPrice = product.total
-    ? numeral(product.total).format("$0,0")
+  const formattednewPrice = product?.total
+    ? numeral(product?.total).format("$0,0")
     : null;
 
   return (
@@ -97,7 +90,7 @@ const ProductDetail: React.FC = () => {
         <div className={Style.main_top}>
           <div className={Style.left_top}>
             <div className={Style.productthumbnails}>
-            {product.thumbnails.map((thumbnail, index) => (
+              {product?.thumbnails?.map((thumbnail, index) => (
                 <img
                   key={index}
                   src={thumbnail}
@@ -117,7 +110,7 @@ const ProductDetail: React.FC = () => {
               <div className={Style.bgimg}>
                 <Image
                   className={Style.img}
-                  src={product.carousels[currentIndex]}
+                  src={product?.carousels[currentIndex]}
                   alt="Product Image"
                   fluid
                 />
@@ -134,10 +127,10 @@ const ProductDetail: React.FC = () => {
           </div>
           <div className={Style.right_top}>
             <div className={Style.title_top}>
-            <div>{product.title}</div>
+              <div>{product?.title}</div>
             </div>
             <div className={Style.price_top}>
-              <span>Now</span> {product.discount ? <span>{formattednewPrice}</span> : <span>{formattednewPrice}</span>}
+              <span>Now</span> {product?.discount ? <span>{formattednewPrice}</span> : <span>{formattednewPrice}</span>}
             </div>
             <div className={Style.discount_top}>
               <span>Was</span> {formattedoldPrice ?? <span>{formattednewPrice}</span>} {formattedDiscount ?? <span>{formattedDiscount}</span>}
@@ -157,7 +150,7 @@ const ProductDetail: React.FC = () => {
               }}
             >
               <option>Please Select</option>
-              {product.sizes.map((sizes: any, index: any) => (
+              {product?.sizes.map((sizes: any, index: any) => (
                 <option key={index} value={sizes}>
                   {sizes}
                 </option>
@@ -177,7 +170,7 @@ const ProductDetail: React.FC = () => {
             <DetailTask />
           </div>
         </div>
-        </div>
+      </div>
       <FooterLayout />
     </div>
   );

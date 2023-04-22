@@ -5,16 +5,14 @@ import ItemSavedCommon from "../../common/ItemSavedCommon/ItemSavedCommon";
 import FooterLayout from "../../layout/FooterLayout/FooterLayout";
 import NavBarlayout from "../../layout/NavBarLayout/NavBarLayout";
 import Styles from "./Saved.module.css";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/Store";
 
 const Saved: React.FC = () => {
-  const [products, setProducts] = React.useState<Array<IProduct>>([]);
 
-  React.useEffect(() => {
-    axios.get("http://localhost:9000/products").then((response) => {
-      setProducts(response.data);
-      // console.log(response.data);
-    });
-  }, []);
+  const { saveds } = useSelector(
+    (state: RootState) => state.saved
+  );
 
   return (
     <div className={Styles.Container}>
@@ -24,10 +22,10 @@ const Saved: React.FC = () => {
       </div>
       <div className={Styles.mid}>
         <div className={Styles.productList}>
-          {products.map((item) => (
+          {saveds?.map((item : IProduct) => (
             <Row key={item._id}>
               <Col key={item._id}>
-                <ItemSavedCommon {...item} />
+                <ItemSavedCommon item = {item} />
               </Col>
             </Row>
           ))}

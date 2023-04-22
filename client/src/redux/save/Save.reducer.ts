@@ -9,16 +9,16 @@ const saveSlice = createSlice({
   name: "saveds",
   initialState,
   reducers: {
-    addProductSuccess(state, action: PayloadAction<ICardCommon>) {
-      const newData = (state.saveds as Array<ICardCommon>).concat(action.payload)
+    addProductSuccess(state, action: PayloadAction<IProduct>) {
+      const newData = (state.saveds as Array<IProduct>).concat(action.payload)
       localStorage.setItem("saveds", JSON.stringify(newData));
       state.saveds = newData;
     },
     clearProduct(state) {
       state.saveds = [];
     },
-    deleteProductSuccess(state, action: PayloadAction<ICardCommon>) {
-      const newData = (state.saveds as Array<ICardCommon>)?.filter(item => JSON.stringify(item) !== JSON.stringify(action.payload))
+    deleteProductSuccess(state, action: PayloadAction<IProduct>) {
+      const newData = (state.saveds as Array<IProduct>)?.filter(item => JSON.stringify(item) !== JSON.stringify(action.payload))
       localStorage.setItem("saveds", JSON.stringify(newData));
       state.saveds = newData;
     },

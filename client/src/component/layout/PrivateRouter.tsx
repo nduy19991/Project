@@ -50,77 +50,77 @@ const PrivateRouter: React.FC = () => {
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "sale",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_NEWIN,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "new in",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_CLOTHING,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "clothing",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_SHOES,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "shoes",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_ACCESSORIES,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "accessories",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_SPORTSWEAR,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "sportswear",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_JEANS,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "jeans",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_BRANDS,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "brands",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_TOPMAN,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "topman",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_OUTLET,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "outlet",
-      } as IProduct,
+      } as ICardCommon,
     },
     {
       path: ROUTES.ADMIN_PRODUCT_MARKETPLACE,
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "marketplace",
-      } as IProduct,
+      } as ICardCommon,
     },
 
     //DETAILPRODUCT

@@ -1,3 +1,4 @@
 interface ICartState {
-    products ?: Array<ICardCommon>
+    products ?: Array<IProduct>
+    saveds ?: Array<IProduct>
 }

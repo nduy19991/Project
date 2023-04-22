@@ -2,24 +2,23 @@ import React, { useMemo } from "react";
 import numeral from "numeral";
 import "numeral/locales/en-gb";
 import Styles from "./ItemSavedCommon.module.css";
+import { useAppDispatch } from "../../../redux/Store";
+import { deleteToSave } from "../../../redux/save/Save.service";
 
 numeral.locale("en-gb");
 
-const ItemSavedCommon: React.FC<IPropsItemBagCommon> = (props) => {
-  const { title, imgLeave, normalPrice, price, total, discount } = props;
+const ItemSavedCommon: React.FC<ICardCommon> = (props) => {
+  const { item } = props
 
-  const formattedoldPrice = price ? numeral(price).format("$0,0") : null;
+  const formattednewPrice = item?.total ? numeral(item?.total).format("$0,0") : null;
 
-  const formattednewPrice = total ? numeral(total).format("$0,0") : null;
+  const dispatch = useAppDispatch();
 
-  const listSelect = [
-    { id: 1, text: "SIZE", value: "1" },
-    { id: 2, text: "XS", value: "2" },
-    { id: 3, text: "S", value: "3" },
-    { id: 4, text: "M", value: "4" },
-    { id: 5, text: "L", value: "5" },
-    { id: 6, text: "XL", value: "6" },
-  ];
+  const handleDeleteToCart = () => {
+    if (item) {
+      dispatch(deleteToSave(item));
+    }
+  }
 
   return (
     <div>
@@ -27,21 +26,16 @@ const ItemSavedCommon: React.FC<IPropsItemBagCommon> = (props) => {
         <div className={Styles.top}>
           <div className={Styles.image}>
             {/* style={{ backgroundImage: `url(${imgLeave})` }} */}
-            <img src={imgLeave} alt="" />
+            <img src={item?.imgLeave} alt="" />
           </div>
 
           <div className={Styles.title}>
-            {title ?? <div className="input-group-text">{title}</div>}
+            {item?.title ?? <div className="input-group-text">{item?.title}</div>}
           </div>
         </div>
 
         <div className={Styles.mid}>
           <div className={Styles.price}>
-            {/* <span className={Styles.normal_price}>
-                            {price ? (
-                                <span>{numeral(price).format("$0,0.00")}</span>
-                            ) : null}
-                        </span> */}
             <span className={Styles.new_price}>
               {formattednewPrice ?? <span>{formattednewPrice}</span>}
             </span>
@@ -62,7 +56,7 @@ const ItemSavedCommon: React.FC<IPropsItemBagCommon> = (props) => {
             </select>
           </div>
         </div>
-        <button className={Styles.button}>MOVE TO BAG</button>
+        <button className={Styles.button} onClick={handleDeleteToCart}>MOVE TO BAG</button>
       </div>
     </div>
   );

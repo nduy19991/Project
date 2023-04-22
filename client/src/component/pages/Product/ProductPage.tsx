@@ -1,6 +1,5 @@
 import React from "react";
 import CardCommon from "../../common/CardCommon/CardCommon";
-// import productItems from "../../../data/productItems.json"
 import Styles from "./ProductPage.module.css";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
@@ -9,9 +8,9 @@ import FooterLayout from "../../layout/FooterLayout/FooterLayout";
 import { Link } from "react-router-dom";
 
 const ProductPage: React.FC<IProduct> = (props) => {
-  const { type } = props;
+  const { type } = props
 
-  const [products, setProducts] = React.useState<Array<ICardCommon>>([]);
+  const [products, setProducts] = React.useState<Array<IProduct>>([]);
 
   React.useEffect(() => {
     axios.get("http://localhost:9000/products").then((response) => {
@@ -22,15 +21,6 @@ const ProductPage: React.FC<IProduct> = (props) => {
     <div>
       <NavBarLayout />
       <div className={Styles.bg_product}>
-        {/* <div className={Styles.product}>
-          {products.map((item) => (
-            <Row>
-              <Col key={item._id}>
-                <CardCommon {...item} />
-              </Col>
-            </Row>
-          ))}
-        </div> */}
         {type === "sale" ?
         <div className={Styles.product}>
         {products.filter(branch => branch.branchId === "6419c30b113cbd4d744ff135").map((item) => (

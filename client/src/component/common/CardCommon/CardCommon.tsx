@@ -8,7 +8,7 @@ import { ROUTES } from "../../../utils/constants/routes";
 
 numeral.locale("en-gb");
 
-const CardCommon: React.FC<ICardCommon> = (props) => {
+const CardCommon: React.FC<IProduct> = (props) => {
 
     const { discount, selling, imgHover, imgLeave, title, price, total } = props
 
