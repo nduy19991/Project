@@ -7,6 +7,7 @@ import ProductReducer from "./product/Product.reducer";
 import CommonReducer from "./common/Common.reducer";
 import { createLogger } from "redux-logger";
 import CartReducer from "./cart/Cart.reducer";
+import SaveReducer from "./save/Save.reducer";
 
 const loggerMiddleware = createLogger();
 
@@ -15,7 +16,8 @@ export const store = configureStore({
     common: CommonReducer,
     user: UserReducer,
     product: ProductReducer,
-    cart : CartReducer
+    cart : CartReducer,
+    saved : SaveReducer
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(loggerMiddleware);

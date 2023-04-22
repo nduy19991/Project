@@ -17,9 +17,14 @@ const cartSlice = createSlice({
     clearProduct(state) {
       state.products = [];
     },
+    deleteProductSuccess(state, action: PayloadAction<ICardCommon>) {
+      const newData = (state.products as Array<ICardCommon>)?.filter(item => JSON.stringify(item) !== JSON.stringify(action.payload))
+      localStorage.setItem("products", JSON.stringify(newData));
+      state.products = newData;
+    },
   },
 });
 
-export const { addProductSuccess, clearProduct } = cartSlice.actions;
+export const { addProductSuccess, clearProduct, deleteProductSuccess } = cartSlice.actions;
 
 export default cartSlice.reducer;
