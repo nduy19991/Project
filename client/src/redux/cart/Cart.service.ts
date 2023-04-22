@@ -4,7 +4,7 @@ import { AppThunk } from "../Store";
 import { addProductSuccess, deleteProductSuccess } from "./Cart.reducer";
 
 export const addToCart =
-  (product: ICardCommon): AppThunk =>
+  (product: IProduct): AppThunk =>
     async (dispatch) => {
       // xy ly exception
       dispatch(getStart());
@@ -18,7 +18,7 @@ export const addToCart =
     };
 
 export const deleteToCart =
-  (product: ICardCommon): AppThunk =>
+  (product: IProduct): AppThunk =>
     async (dispatch) => {
       // xy ly exception
       dispatch(getStart());

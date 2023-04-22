@@ -3,22 +3,33 @@ import numeral from "numeral";
 import "numeral/locales/en-gb";
 import Styles from "./ItemBagCommon.module.css";
 import SelectCommon from "../SelectCommon/SelectCommon";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineClose } from "react-icons/ai";
+import { useAppDispatch } from "../../../redux/Store";
+import { deleteToCart } from "../../../redux/cart/Cart.service";
 
 numeral.locale("en-gb");
 
-const ItemBagCommon: React.FC<IPropsItemBagCommon> = (props) => {
-  const { title, imgLeave, normalPrice, price, total, discount } = props;
+const ItemBagCommon: React.FC<ICardCommon> = (props) => {
+  const { item } = props
 
-  const formattedoldPrice = price ? numeral(price).format("$0,0") : null;
+  const formattedoldPrice = item?.price ? numeral(item?.price).format("$0,0") : null;
 
-  const formattednewPrice = total ? numeral(total).format("$0,0") : null;
+  const formattednewPrice = item?.total ? numeral(item?.total).format("$0,0") : null;
 
   const [isShowLike, setIsShowLike] = useState(true);
 
   const handleClick = () => {
     setIsShowLike(!isShowLike);
   };
+  console.log(item)
+
+  const dispatch = useAppDispatch();
+
+  const handleDeleteToCart = () => {
+    if (item) {
+      dispatch(deleteToCart(item));
+    }
+  }
   const listSelect = useMemo(
     () => [
       {
@@ -53,7 +64,7 @@ const ItemBagCommon: React.FC<IPropsItemBagCommon> = (props) => {
               {/* LEFT*/}
               <div
                 className={Styles.image}
-                style={{ backgroundImage: `url(${imgLeave})` }}
+                style={{ backgroundImage: `url(${item?.imgLeave})` }}
               ></div>
             </div>
           </div>
@@ -61,21 +72,21 @@ const ItemBagCommon: React.FC<IPropsItemBagCommon> = (props) => {
           <div className={Styles.right}>
             <div className={Styles.price}>
               <span className={Styles.normal_price}>
-                {normalPrice ? (
-                  <span>{numeral(normalPrice).format("$0,0.00")}</span>
+                {item?.normalPrice ? (
+                  <span>{numeral(item?.normalPrice).format("$0,0.00")}</span>
                 ) : null}
               </span>
               <span className={Styles.new_price}>
                 {formattednewPrice ?? <span>{formattednewPrice}</span>}
               </span>
               <span className={Styles.old_price}>
-                {discount ? <span>{formattedoldPrice}</span> : null}
+                {item?.discount ? <span>{formattedoldPrice}</span> : null}
               </span>
             </div>
 
             {/* PRODUCT_NAME */}
             <div className={Styles.title}>
-              {title ?? <div className="input-group-text">{title}</div>}
+              {item?.title ?? <div className="input-group-text">{item?.title}</div>}
             </div>
 
             {/* SELECT GROUP */}
@@ -91,8 +102,7 @@ const ItemBagCommon: React.FC<IPropsItemBagCommon> = (props) => {
                   );
                 })}
               </span>
-              {/* <span className={Styles.select_size}>SIZE</span>
-              <span className={Styles.quantity}>Qty</span> */}
+              <span>{item?.price}</span>
             </div>
 
             <div className={Styles.like}>
@@ -106,6 +116,7 @@ const ItemBagCommon: React.FC<IPropsItemBagCommon> = (props) => {
               <span className={Styles.btn_text}>Save for later</span>
             </div>
           </div>
+          <div onClick={handleDeleteToCart}><AiOutlineClose/></div>
         </div>
       </div>
     </>

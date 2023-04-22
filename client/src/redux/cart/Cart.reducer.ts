@@ -9,16 +9,16 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProductSuccess(state, action: PayloadAction<ICardCommon>) {
-      const newData = (state.products as Array<ICardCommon>).concat(action.payload)
+    addProductSuccess(state, action: PayloadAction<IProduct>) {
+      const newData = (state.products as Array<IProduct>).concat(action.payload)
       localStorage.setItem("products", JSON.stringify(newData));
       state.products = newData;
     },
     clearProduct(state) {
       state.products = [];
     },
-    deleteProductSuccess(state, action: PayloadAction<ICardCommon>) {
-      const newData = (state.products as Array<ICardCommon>)?.filter(item => JSON.stringify(item) !== JSON.stringify(action.payload))
+    deleteProductSuccess(state, action: PayloadAction<IProduct>) {
+      const newData = (state.products as Array<IProduct>)?.filter(item => JSON.stringify(item) !== JSON.stringify(action.payload))
       localStorage.setItem("products", JSON.stringify(newData));
       state.products = newData;
     },

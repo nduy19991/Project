@@ -18,8 +18,12 @@ const TaskBar: React.FC = () => {
   const isWomenPage = location.pathname === "/women";
   const isMenPage = location.pathname === "/men";
   const [showTable, setShowTable] = useState(false);
+
   const { products } = useSelector(
     (state: RootState) => state.cart
+  );
+  const { saveds } = useSelector(
+    (state: RootState) => state.saved
   );
 
   const handleHover = () => {
@@ -173,14 +177,21 @@ const TaskBar: React.FC = () => {
             </div>
             <a className={Styles.widgets} href="http://localhost:3000/saved">
               <AiOutlineHeart className={Styles.widgets_icon} />
+              {
+                saveds?.length
+                  ? saveds?.length > 99
+                    ? `99+` : <div className={Styles.bg_widgets_number}><div className={Styles.widgets_number}>{saveds?.length}</div></div>
+                  : null
+              }
             </a>
             <a className={Styles.widgets} href="http://localhost:3000/bag">
               <RiShoppingBagLine className={Styles.widgets_icon} />
-              <div className={Styles.bg_widgets_number}>
-                <div className={Styles.widgets_number}>
-                {products?.length}
-                </div>
-              </div>
+                  {
+                    products?.length
+                      ? products?.length > 99
+                        ? `99+` : <div className={Styles.bg_widgets_number}><div className={Styles.widgets_number}>{products?.length}</div></div>
+                      : 0
+                  }
             </a>
           </div>
         </div>

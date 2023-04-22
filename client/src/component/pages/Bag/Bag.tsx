@@ -3,25 +3,18 @@ import ItemBagCommon from "../../common/ItemBagCommon/ItemBagCommon";
 import Styles from "./Bag.module.css";
 import { Col, Row } from "react-bootstrap";
 import { RiErrorWarningLine } from "react-icons/ri";
-// import productItems from "../../../data/productItems.json";
 import NavBarLayout from "../../layout/NavBarLayout/NavBarLayout";
 import FooterLayout from "../../layout/FooterLayout/FooterLayout";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/Store";
 
-const Bag: React.FC = () => {
-  // const [products, setProducts] = React.useState<Array<IProduct>>([]);
+const Bag: React.FC<IProduct> = () => {
+
   const { products } = useSelector(
     (state: RootState) => state.cart
   );
+  console.log(products)
 
-  // React.useEffect(() => {
-  //   axios.get("http://localhost:9000/products").then((response) => {
-  //     setProducts(response.data);
-  //     // console.log(response.data);
-  //   });
-  // }, []);
   return (
     <>
       <NavBarLayout />
@@ -42,7 +35,7 @@ const Bag: React.FC = () => {
                 {products?.map((item) => (
                   <Row key={item._id}>
                     <Col key={item._id}>
-                      <ItemBagCommon {...item} />
+                      <ItemBagCommon item={item}/>
                     </Col>
                   </Row>
                 ))}

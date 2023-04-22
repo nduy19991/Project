@@ -3,7 +3,7 @@ import { AppThunk } from "../Store";
 import { addProductSuccess, deleteProductSuccess } from "./Save.reducer";
 
 export const addToSave =
-  (product: ICardCommon): AppThunk =>
+  (product: IProduct): AppThunk =>
     async (dispatch) => {
       // xy ly exception
       dispatch(getStart());
@@ -17,7 +17,7 @@ export const addToSave =
     };
 
 export const deleteToSave =
-  (product: ICardCommon): AppThunk =>
+  (product: IProduct): AppThunk =>
     async (dispatch) => {
       // xy ly exception
       dispatch(getStart());
