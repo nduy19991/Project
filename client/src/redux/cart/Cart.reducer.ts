@@ -10,9 +10,14 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addProductSuccess(state, action: PayloadAction<IProduct>) {
-      const newData = (state.products as Array<IProduct>).concat(action.payload)
-      localStorage.setItem("products", JSON.stringify(newData));
-      state.products = newData;
+      const newData = (state.products as Array<IProduct>).find((item) => item._id === action.payload._id);
+      if (newData) {
+        alert('Có trong giỏ hàng rồi TKML')
+      } else {
+        const newData = (state.products as Array<IProduct>).concat(action.payload)
+        localStorage.setItem("products", JSON.stringify(newData));
+        state.products = newData;
+      }
     },
     clearProduct(state) {
       state.products = [];
