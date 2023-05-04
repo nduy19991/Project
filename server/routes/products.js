@@ -13,9 +13,12 @@ const { Product } = require("../models");
 
 /* GET ALL */
 router.get("/", function (req, res, next) {
+  const search = req?.query?.search
   try {
-    Product.find()
-    .populate("branch")
+    Product.find({
+      'title': { $regex: search ?? '' }
+    })
+      .populate("branch")
       .then((result) => {
         res.send(result);
       })

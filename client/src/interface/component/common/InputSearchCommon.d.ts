@@ -1,13 +1,12 @@
 interface IPropsInputSearchCommon {
-  label?: string;
-  color?: string;
-  isInputPassword ?: boolean;
-  type?: 'text' | 'password' | 'date' | 'color';
+  colorTextPassword?: 'black' | 'blue';
+  defaultValue?: string;
   placeholder?: string;
   className?: string;
+  label?: string;
+  onSubmit?: (text : string) => void
 }
 
-interface IPropsInputSearchCommon {
-    isShowPassword?: boolean;
-    colorTextPassword ?: 'black' | 'blue';
+interface IStateInputSearchCommon {
+  keyword?: string
 }

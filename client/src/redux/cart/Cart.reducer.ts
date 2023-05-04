@@ -1,8 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const productsLocal = localStorage.getItem("products")
+let totalLocal = 0
+if (productsLocal) {
+  const tempList = JSON.parse(productsLocal)
+  tempList?.map((item: IProduct) => {
+    totalLocal += item?.price
+  })
+}
 const initialState: ICartState = {
   products: productsLocal ? JSON.parse(productsLocal) : [],
+  total: totalLocal
 };
 
 const cartSlice = createSlice({
@@ -17,6 +25,7 @@ const cartSlice = createSlice({
         const newData = (state.products as Array<IProduct>).concat(action.payload)
         localStorage.setItem("products", JSON.stringify(newData));
         state.products = newData;
+        state.total = state.total += action?.payload?.price
       }
     },
     clearProduct(state) {
@@ -26,7 +35,9 @@ const cartSlice = createSlice({
       const newData = (state.products as Array<IProduct>)?.filter(item => JSON.stringify(item) !== JSON.stringify(action.payload))
       localStorage.setItem("products", JSON.stringify(newData));
       state.products = newData;
+      state.total = state.total -= action?.payload?.price
     },
+
   },
 });
 

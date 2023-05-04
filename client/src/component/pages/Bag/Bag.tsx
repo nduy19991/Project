@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemBagCommon from "../../common/ItemBagCommon/ItemBagCommon";
 import Styles from "./Bag.module.css";
 import { Col, Row } from "react-bootstrap";
@@ -10,11 +10,10 @@ import { RootState } from "../../../redux/Store";
 
 const Bag: React.FC<IProduct> = () => {
 
-  const { products } = useSelector(
+  const { products, total } = useSelector(
     (state: RootState) => state.cart
   );
-  console.log(products)
-
+  
   return (
     <>
       <NavBarLayout />
@@ -60,7 +59,7 @@ const Bag: React.FC<IProduct> = () => {
                 <div className={Styles.total_mid}>
                   <div className={Styles.mid_content}>
                     <span>Sub-total</span>
-                    <span>£138.50</span>
+                    <span>{total}</span>
                   </div>
                   <div className={Styles.mid_content}>
                     <span>Delivery</span>

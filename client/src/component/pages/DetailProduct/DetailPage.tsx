@@ -150,9 +150,9 @@ const ProductDetail: React.FC = () => {
               }}
             >
               <option>Please Select</option>
-              {product?.sizes.map((sizes: any, index: any) => (
-                <option key={index} value={sizes}>
-                  {sizes}
+              {product?.sizes?.size?.map((sizes: any, index: any) => (
+                <option key={index} value={sizes.size}>
+                  {sizes.size}
                 </option>
               ))}
             </Form.Select>

@@ -102,7 +102,6 @@ const ItemBagCommon: React.FC<ICardCommon> = (props) => {
                   );
                 })}
               </span>
-              <span>{item?.price}</span>
             </div>
 
             <div className={Styles.like}>

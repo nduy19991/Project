@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const savedsLocal = localStorage.getItem("saveds")
-const initialState: ICartState = {
+const initialState: ISaveState = {
   saveds: savedsLocal ? JSON.parse(savedsLocal) : [],
 };
 

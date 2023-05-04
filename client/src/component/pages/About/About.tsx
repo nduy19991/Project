@@ -1,5 +1,5 @@
 import React from "react";
-import InputCommon from "../../common/InputSearchCommon/InputSearchCommon";
+import InputCommon from "../../common/InputCommon/InputCommon";
 
 const About: React.FC = () => {
   return (
