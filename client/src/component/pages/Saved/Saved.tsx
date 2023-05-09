@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import ItemSavedCommon from "../../common/ItemSavedCommon/ItemSavedCommon";

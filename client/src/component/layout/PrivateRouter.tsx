@@ -41,6 +41,8 @@ const PrivateRouter: React.FC = () => {
     },
 
     //PRODUCTPAGE
+
+    //BRANCH
     {
       path: ROUTES.ADMIN_PRODUCT,
       element: lazy(() => import("../pages/Product/ProductPage")),
@@ -120,6 +122,15 @@ const PrivateRouter: React.FC = () => {
       element: lazy(() => import("../pages/Product/ProductPage")),
       props: {
         type: "marketplace",
+      } as ICardCommon,
+    },
+
+    //SUPPLIER
+    {
+      path: ROUTES.ADMIN_PRODUCT_MONKI,
+      element: lazy(() => import("../pages/Product/ProductPage")),
+      props: {
+        type: "monki",
       } as ICardCommon,
     },
 

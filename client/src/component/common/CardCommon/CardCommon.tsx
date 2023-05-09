@@ -3,20 +3,12 @@ import "numeral/locales/en-gb";
 import React, { useState } from "react";
 import Styles from "./CardCommon.module.css"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { ROUTES } from "../../../utils/constants/routes";
 
 numeral.locale("en-gb");
 
 const CardCommon: React.FC<IProduct> = (props) => {
 
-    const { discount, selling, imgHover, imgLeave, title, price, total } = props
-
-    const [imgUrl, setImageUrl] = useState(true);
-
-    const tradeImgUrl = () => {
-        setImageUrl(!imgUrl)
-    }
+    const { discount, selling, imgLeave, title, price, total } = props
 
     const [isShowLike, setIsShowLike] = useState(true);
 
@@ -39,9 +31,7 @@ const CardCommon: React.FC<IProduct> = (props) => {
     return (
         <div className={Styles.product}>
             <div className={Styles.image}
-                    style={{ backgroundImage: `url(${imgUrl ? imgLeave : imgHover})`}}
-                    onMouseOver={tradeImgUrl}
-                    onMouseLeave={tradeImgUrl}
+                    style={{ backgroundImage: `url(${imgLeave})`}}
                 >
                     <div className={Styles.discount}>
                         {formattedDiscount ?? <span>{formattedDiscount}</span>}

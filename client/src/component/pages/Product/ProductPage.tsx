@@ -155,6 +155,18 @@ const ProductPage: React.FC<IProduct> = (props) => {
               </Row>
             ))}
           </div> : null}
+          {type === "monki" ?
+          <div className={Styles.product}>
+            {products.filter(supplier => supplier.supplierId === "63a9c9d7814ec95b75a0f1c1").map((item) => (
+              <Row key={item._id}>
+                <Col>
+                  <Link className={Styles.link} to={`/products/${item._id}`}>
+                    <CardCommon {...item} />
+                  </Link>
+                </Col>
+              </Row>
+            ))}
+          </div> : null}
       </div>
       <FooterLayout />
     </div>

@@ -7,12 +7,20 @@ import NavBarLayout from "../../layout/NavBarLayout/NavBarLayout";
 import FooterLayout from "../../layout/FooterLayout/FooterLayout";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/Store";
+import numeral from "numeral";
+import "numeral/locales/en-gb";
+
+numeral.locale("en-gb");
 
 const Bag: React.FC<IProduct> = () => {
 
   const { products, total } = useSelector(
     (state: RootState) => state.cart
   );
+
+  const formatTotal = total
+    ? numeral(total).format("$0,0")
+    : null;
   
   return (
     <>
@@ -42,7 +50,7 @@ const Bag: React.FC<IProduct> = () => {
                 <div className={Styles.total}>
                   <div className={Styles.subtotal}>
                     <span className={Styles.sub_text}>SUB-TOTAL</span>
-                    <span className={Styles.total_price}>£138.50</span>
+                    <span className={Styles.total_price}>{formatTotal}</span>
                   </div>
                 </div>
 
@@ -59,7 +67,7 @@ const Bag: React.FC<IProduct> = () => {
                 <div className={Styles.total_mid}>
                   <div className={Styles.mid_content}>
                     <span>Sub-total</span>
-                    <span>{total}</span>
+                    <span>{formatTotal}</span>
                   </div>
                   <div className={Styles.mid_content}>
                     <span>Delivery</span>

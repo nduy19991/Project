@@ -14,7 +14,7 @@ const productSchema = new Schema({
   selling: { type: Boolean, required: true },
   imgLeave: { type: String, required: true },
   imgHover: { type: String, required: true },
-  size: { type: String, required: true },
+  sizes: { type: Array, required: true },
 },
   {
     versionKey: false,

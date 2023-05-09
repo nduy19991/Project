@@ -90,10 +90,10 @@ const ProductDetail: React.FC = () => {
         <div className={Style.main_top}>
           <div className={Style.left_top}>
             <div className={Style.productthumbnails}>
-              {product?.thumbnails?.map((thumbnail, index) => (
+              {product?.carousels?.map((carousels: any, index: any) => (
                 <img
                   key={index}
-                  src={thumbnail}
+                  src={carousels}
                   alt={`Thumbnail ${index + 1}`}
                   onClick={() => handleThumbnailClick(index)}
                   style={{
