@@ -14,6 +14,7 @@ var featureCommonsRouter = require('./routes/featureCommons');
 var infoFootersRouter = require('./routes/infoFooters');
 var logoFooterCommonsRouter = require('./routes/logoFooterCommons');
 var branchesRouter = require('./routes/branches');
+var authRouter = require('./routes');
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use('/featurecommons', featureCommonsRouter);
 app.use('/infofooters', infoFootersRouter);
 app.use('/logofootercommons', logoFooterCommonsRouter);
 app.use('/branches', branchesRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

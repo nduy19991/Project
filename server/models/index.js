@@ -5,5 +5,6 @@ const FeatureCommon = require('./FeatureCommon')
 const InfoFooter = require('./InfoFooter')
 const LogoFooterCommon = require('./LogoFooterCommon')
 const Branch = require('./Branch')
+const Login = require('./Login');
 
-module.exports = { Product, BarButton, LogoCommon, FeatureCommon, InfoFooter, LogoFooterCommon, Branch };
+module.exports = { Product, BarButton, LogoCommon, FeatureCommon, InfoFooter, LogoFooterCommon, Branch, Login };

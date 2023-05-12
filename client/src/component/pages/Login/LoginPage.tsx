@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import InputCommon from "../../common/InputCommon/InputCommon";
 import Styles from "./LoginPage.module.css";
 import logo from "../../../images/logo_asos.png";
@@ -6,11 +6,43 @@ import facebook from "../../../images/facebook.png";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../utils/constants/routes";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
+import axios from "axios";
 
 const SignIn: React.FC = () => {
   const location = useLocation();
   const isSignUpPage = location.pathname === "/register";
   const isSigninPage = location.pathname === "/login";
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  let navigate = useNavigate();
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    console.log("submit", email, password);
+    let a: any = 'admin'
+    let b: any = 'admin'
+    if (email === a && password === b) {
+      navigate('/')
+      alert('Success Login!!!');
+    } else {
+      alert('Wrong Password!!!');
+    }
+  };
+
+  const handleChange = (event: any) => {
+    switch (event.target.name) {
+      case "email":
+        setEmail(event.target.value);
+        break;
+      case "password":
+        setPassword(event.target.value);
+        break;
+
+      default:
+        break;
+    }
+  };
 
   return (
     <div className={Styles.surrounding}>
@@ -28,18 +60,16 @@ const SignIn: React.FC = () => {
           <div className={Styles.option}>
             <Link to={ROUTES.REGISTER}>
               <div
-                className={`${Styles.titleJ} ${
-                  isSignUpPage ? Styles.active : ""
-                }`}
+                className={`${Styles.titleJ} ${isSignUpPage ? Styles.active : ""
+                  }`}
               >
                 Join
               </div>
             </Link>
             <Link to={ROUTES.LOGIN}>
               <div
-                className={`${Styles.titleS} ${
-                  isSigninPage ? Styles.active : ""
-                }`}
+                className={`${Styles.titleS} ${isSigninPage ? Styles.active : ""
+                  }`}
               >
                 Sign in
               </div>
@@ -49,12 +79,27 @@ const SignIn: React.FC = () => {
           {/* INPUT */}
           <div className={Styles.form}>
             <div className={Styles.field}>
-              <InputCommon label="EMAIL ADDRESS" isInputPassword={false} />
-              <InputCommon label="PASSWORD" />
+              <InputCommon
+                name="email"
+                label="EMAIL ADDRESS"
+                isInputPassword={false}
+                onChange={handleChange}
+                value={email ? email : ""}
+              />
+              <InputCommon
+                name="password"
+                label="PASSWORD"
+                onChange={handleChange}
+                value={password ? password : ""}
+              />
             </div>
 
             <div className={Styles.submit}>
-              <div className={Styles.sign_in}>Sign in</div>
+              <div
+                className={Styles.sign_in}
+                onClick={handleSubmit}
+              >Sign in
+              </div>
             </div>
             <div className={Styles.text}>Forgot password?</div>
           </div>

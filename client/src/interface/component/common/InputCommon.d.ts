@@ -5,7 +5,9 @@ interface IPropsInputCommon {
   type?: "text" | "password" | "date" | "color" | string;
   className?: string;
   placeholder?: string;
-  value?: any,
+  value?: any;
+  onChange?: any;
+  name?: string;
 }
 
 interface IPropsInputCommon {

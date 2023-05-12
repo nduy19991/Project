@@ -23,6 +23,8 @@ const ProductPage: React.FC<IProduct> = (props) => {
     <div>
       <NavBarLayout />
       <div className={Styles.bg_product}>
+        
+        //BRANCH
         {type === "sale" ?
           <div className={Styles.product}>
             {products.filter(branch => branch.branchId === "6419c30b113cbd4d744ff135").map((item) => (
@@ -155,6 +157,8 @@ const ProductPage: React.FC<IProduct> = (props) => {
               </Row>
             ))}
           </div> : null}
+
+          //SUPPLIER WOMEN
           {type === "monki" ?
           <div className={Styles.product}>
             {products.filter(supplier => supplier.supplierId === "63a9c9d7814ec95b75a0f1c1").map((item) => (

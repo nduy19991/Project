@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const productsLocal = localStorage.getItem("products")
+
 let totalLocal = 0
 if (productsLocal) {
   const tempList = JSON.parse(productsLocal)
@@ -8,6 +9,7 @@ if (productsLocal) {
     totalLocal += item?.price
   })
 }
+
 const initialState: ICartState = {
   products: productsLocal ? JSON.parse(productsLocal) : [],
   total: totalLocal

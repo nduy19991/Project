@@ -20,6 +20,9 @@ const InputCommon: React.FC<IPropsInputCommon> = (props) => {
     type = "text",
     className,
     placeholder,
+    value,
+    onChange,
+    name
   } = props;
   const [state, setState] = useState<IStateInputCommon>(defaultValueState);
   const { isShowPassword, isForcus } = state;
@@ -46,6 +49,9 @@ const InputCommon: React.FC<IPropsInputCommon> = (props) => {
               color: color,
             }}
             placeholder={placeholder ?? ""}
+            value={value}
+            onChange={onChange}
+            name={name}
           />
           {isInputPassword && (
             <span
